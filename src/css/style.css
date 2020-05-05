@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand:400,700&display=swap');
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+   font-family: 'Quicksand', sans-serif;
+   margin: 0;
+   padding: 0;
+}
+
+.jumbotron {
+   background-color: #13c8f1;
+   padding-top: 8.5rem; 
+   color: white;
+   text-align: center;
+}
+
+.pricing-header {
+   max-width: 700px;
+ }
+ 
+ .card-deck .card {
+   min-width: 220px;
+ }

@@ -1,0 +1,25 @@
+{
+  "name": "covid19",
+  "version": "1.0.0",
+  "description": "aplikasi covid19 berbasis web",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "http-server ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thinkerdust/covid19.git"
+  },
+  "author": "Ayu R",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thinkerdust/covid19/issues"
+  },
+  "homepage": "https://github.com/thinkerdust/covid19#readme",
+  "dependencies": {
+    "bootstrap": "^4.4.1",
+    "http-server": "^0.12.3",
+    "jquery": "^3.4.1"
+  }
+}
