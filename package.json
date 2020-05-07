@@ -4,8 +4,8 @@
   "description": "aplikasi covid19 berbasis web",
   "main": "index.js",
   "scripts": {
-    "start-dev": "webpack-dev-server",
-    "build": "webpack"
+    "build": "webpack --config webpack.prod.js",
+    "start-dev": "webpack-dev-server --config webpack.dev.js"
   },
   "repository": {
     "type": "git",

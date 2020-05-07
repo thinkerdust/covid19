@@ -4,23 +4,33 @@ function main() {
             return response.json();
         })
         .then(responseJson => {
-            console.log(JSON.stringify(responseJson));
-            // if(responseJson.error) {
-            //     showResponseMessage(responseJson.message);
-            // } else {
-            //     renderAlldata(responseJson.indo);
-            // }
+            if(responseJson.error) {
+                showResponseMessage(responseJson.message);
+            } else {
+                renderAlldata(responseJson.indo);
+            }
             // document.body.innerText = JSON.stringify(responseJson);
         })
         .catch(error => {
-            // showResponseMessage(error);
-            console.log(error);
-        });
+            showResponseMessage(error);
+        })
+    };
+
+    const showResponseMessage = (message = "Check your internet connection") => {
+        alert(message);
+    };
+
+    const renderAlldata = (indo) => {
+        const listIndopositifElement =  document.querySelector("#indopositif");
+        listIndopositifElement.innerHTML += '<h1 class="card-title pricing-card-title">10</h1>';
+        
     };
 
     document.addEventListener("DOMContentLoaded", () => {
         getdatacovidIndo();
     });
+
+
 }
 
 export default main();
