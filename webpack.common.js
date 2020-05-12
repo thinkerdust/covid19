@@ -10,15 +10,14 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.css$/,
-                use: [
-                    {
-                        loader: "style-loader"
-                    },
-                    {
-                        loader: "css-loader"
-                    }
-                ]
+                test: /\.css$/i,
+                exclude: /css/,
+                use: ["to-string-loader", "css-loader"]
+            },
+            {
+                test: /\.css$/i,
+                include: /css/,
+                use: ["style-loader", "css-loader"]
             },
             {
                 test: /\.(png|jpe?g|gif)$/i,
