@@ -5,150 +5,119 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>COVID-19</title>
 
+        <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
     </head>
     <body>
         <!-- <button class="btn btn-danger btn-md" id="btnTop">top</button> -->
 
         <header>
-            <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
                 <a class="navbar-brand" href="#">COVID-19</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarCollapse">
-                <ul class="navbar-nav mr-auto">
-                    
-                </ul>
-                <form class="form-inline mt-2 mt-md-0">
-                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
-                </form>
-                </div>
+                
             </nav>
+            <div class="jumbotron jumbotron-fluid text-center">
+              <div class="container">
+                <h1 class="display-4">Indonesia Melawan Covid-19</h1>
+                <button type="button" class="btn btn-info btn-lg" style="margin-top: 20px;">Hotline 119 &raquo;</button>
+              </div>
+            </div>
         </header>
 
-        <main role="main">
-
-            <div class="jumbotron">
-            <div class="container">
-                <h1 style="font-weight: bold;font-size: 52px;">INDONESIA MELAWAN COVID-19</h1>
-                </br>
-                </br>
-                <p><a class="btn btn-primary btn-lg" href="#" role="button">Hotline 119 &raquo;</a></p>
-            </div>
-            </div>
-
-            <div class="container featurette">
-                <div class="text-center">
-                    <h1 class="display-4">Lindungi Diri Dari Covid-19</h1>
-                </div>
-
-            <!-- START THE FEATURETTES -->
-        
-            <div class="row featurette">
-                <div class="col-md-7">
-                <h2 class="featurette-heading">Cuci Tangan Dengan Sabun</h2>
-                <p class="lead">Rajin mencuci tangan dengan sabun, gunakan Hand Sanitizer bila tidak ada. Hindari menyentuh wajah, terutama hidung, mulut, dan mata. Bersihkan benda yang sering disentuh</p>
-                </div>
-                <div class="col-md-5">
-                    <img id="WashHand" alt="wash-hand" width="100%">
-                </div>
-            </div>
-        
-            <hr class="featurette-divider">
-        
-            <div class="row featurette">
-                <div class="col-md-7 order-md-2">
-                <h2 class="featurette-heading">Gunakan Masker</h2>
-                <p class="lead">Gunakan masker jika Anda sakit dan segera periksakan diri ke fasilitas kesehatan terdekat. Terapkan etika batuk atau bersin (dengan menutup mulut dan hidung), dan jangan meludah sembarangan</p>
-                </div>
-                <div class="col-md-5 order-md-1">
-                    <img id="UseMask" alt="use-mask" width="100%">
-                </div>
-            </div>
-        
-            <hr class="featurette-divider">
-        
-            <div class="row featurette">
-                <div class="col-md-7">
-                <h2 class="featurette-heading">Social Distancing</h2>
-                <p class="lead">COVID-19 menyebar dengan cepat. Orang dapat terinfeksi tanpa menunjukkan gejala, namun tetap dapat menyebarkannya ke orang lain. Jika kita tidak melakukan upaya pencegahan berupa menghindari keramaian, jumlah orang terinfeksi akan meledak dan fasilitas layanan kesehatan akan kewalahan sehingga banyak kasus akan tidak tertangani.</p>
-                </div>
-                <div class="col-md-5">
-                    <img id="SclDistancing" alt="scl-distancing" width="100%">
-                </div>
-            </div>
-        
-            <!-- /END THE FEATURETTES -->
-        
-            </div><!-- /.container -->
-
-            <hr class="featurette-divider">
-
-            <div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-                <h1 class="display-5">Data Pantauan Covid-19 Indonesia</h1>
-            </div>
-              
-            <div class="container">
-            <div class="card-deck mb-5 text-center">
-                <div class="card mb-3 shadow-sm">
-                <div class="card-header">
-                    <h4 class="my-0 font-weight-normal">Kasus Positif</h4>
-                </div>
-                <div class="card-body" id="indopositif">
-                    
-                </div>
-                </div>
-                <div class="card mb-3 shadow-sm">
-                <div class="card-header">
-                    <h4 class="my-0 font-weight-normal">Dirawat</h4>
-                </div>
-                <div class="card-body" id="indodirawat">
-                   
-                </div>
-                </div>
-                <div class="card mb-3 shadow-sm">
-                    <div class="card-header">
-                        <h4 class="my-0 font-weight-normal">Sembuh</h4>
-                    </div>
-                    <div class="card-body" id="indosembuh">
-                        
+        <main>
+            <div class="container-fluid">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-md-10">
+                        <div class="shadow p-3 mb-5 bg-white rounded content-covid">
+                            <h2>Lindungi Diri Dari COVID-19</h2>
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <img id="WashHand" alt="wash-hand">
+                                </div>
+                                <div class="col-md-7">
+                                    <h3>Cuci Tangan Dengan Sabun</h3>
+                                    <p>Cuci tangan dengan sabun dan air minimal 20 detik atau gunakan hand sanitizer berbasis alkohol minimal 60 %</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-7 p-5">
+                                    <h3>Gunakan Masker</h3>
+                                    <p>Pakai masker jika Anda harus beraktivitas di luar rumah dan ganti secara berkala</p>
+                                </div>
+                                <div class="col-md-5">
+                                    <img id="UseMask" alt="use-mask">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <img id="SclDistancing" alt="scl-distancing">
+                                </div>
+                                <div class="col-md-7">
+                                    <h3>Social Distancing</h3>
+                                    <p>Orang dapat terinfeksi tanpa menunjukkan gejala, namun tetap dapat menyebarkannya ke orang lain. Social Distancing! Minimalisir kontak fisik dengan sesama.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="card mb-3 shadow-sm">
-                <div class="card-header">
-                    <h4 class="my-0 font-weight-normal">Meninggal</h4>
-                </div>
-                <div class="card-body" id="indomeninggal">
-                    
-                </div>
-                </div>
-            </div>
             </div>
     
-            <hr class="featurette-divider">
-
-            <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-                <h1 class="display-5">Kasus Covid-19 Provinsi</h1>
-            </div>
-
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <form>
-                            <input type="text" placeholder="Silahkan Masukkan Nama Provinsi Yang Dicari" name="txtprovinsi" id="txtprovinsi">
-                        </form>
+            <div class="container-fluid">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-md-10">
+                        <div class="shadow p-3 mb-5 bg-white rounded content-covid">
+                            <h2>Data Pantauan COVID-19 Indonesia</h2>
+                            <div class="card-deck mb-3 text-center">
+                                <div class="card text-white bg-info mb-3">
+                                  <div class="card-header">Kasus Positif</div>
+                                  <div class="card-body" id="indopositif">
+                                    
+                                  </div>
+                                </div>
+                                <div class="card text-white bg-warning mb-3">
+                                  <div class="card-header">Dirawat</div>
+                                  <div class="card-body" id="indodirawat">
+                                    
+                                  </div>
+                                </div>
+                                <div class="card text-white bg-success mb-3">
+                                  <div class="card-header">Sembuh</div>
+                                  <div class="card-body" id="indosembuh">
+                                    
+                                  </div>
+                                </div>
+                                <div class="card text-white bg-danger mb-3">
+                                  <div class="card-header">Meninggal</div>
+                                  <div class="card-body" id="indomeninggal">
+                                   
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+    
+            <div class="container-fluid">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-md-10">
+                        <div class="shadow p-3 mb-5 bg-white rounded content-covid">
+                            <h2>Data Pantauan COVID-19 Provinsi</h2>
+                            <form class="search-prov">
+                                <input type="text" placeholder="Silahkan Masukkan Nama Provinsi Yang Dicari" name="">
+                                <button class="btn btn-primary">Search</button>
+                            </form>
+                            <prov-item>
 
-            <hr class="featurette-divider">
-
-            <footer>
-                <p class="float-right"><a href="#">Back to top</a></p>
-                <h6>Indonesia Melawan COVID-19 &copy; Copyright. All Right Reserved </h6>
-              </footer>
+                            </prov-item>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
         </main>
+        <footer>
+            <p>&copy; Copyright <strong>2020 Indonesia Melawan COVID-19.</strong> All Rights Reserved</p>
+        </footer>
 
     </body>
 </html>

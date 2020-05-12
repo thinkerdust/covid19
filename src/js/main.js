@@ -1,3 +1,5 @@
+import "./prov-item.js";
+
 function main() {
     const getdatacovid = () => {
         fetch("https://indonesia-covid-19.mathdro.id/api")
@@ -23,13 +25,13 @@ function main() {
         const datasembuh = document.querySelector("#indosembuh");
         const datameninggal = document.querySelector("#indomeninggal");
 
-        datapositif.innerHTML = '<h1 class="card-title pricing-card-title">' + jumlahKasus +'</h1>';
+        datapositif.innerHTML = '<h5 class="card-title">' + jumlahKasus +'</h5>';
 
-        datadirawat.innerHTML = '<h1 class="card-title pricing-card-title">' + perawatan +'</h1>';
+        datadirawat.innerHTML = '<h5 class="card-title">' + perawatan +'</h5>';
 
-        datasembuh.innerHTML = '<h1 class="card-title pricing-card-title">' + sembuh +'</h1>';
+        datasembuh.innerHTML = '<h5 class="card-title">' + sembuh +'</h5>';
 
-        datameninggal.innerHTML = '<h1 class="card-title pricing-card-title">' + meninggal +'</h1>';
+        datameninggal.innerHTML = '<h5 class="card-title">' + meninggal +'</h5>';
 
     };
 
@@ -37,7 +39,49 @@ function main() {
         alert(message);
     };
 
+    const getdataprovinsi = () => {
+        fetch("https://indonesia-covid-19.mathdro.id/api/provinsi")
+        .then(response => {
+            return response.json();
+        })
+        .then(responseJson => {
+            if(responseJson.error) {
+                showResponseMessage(responseJson.message);
+            } else {
+                renderDataProvinsi(responseJson.data);
+            }
+        })
+        .catch(error => {
+            showResponseMessage(error);
+        });
+    };
+
+    const renderDataProvinsi = (data) => { 
+        const divprovinsi = document.querySelector("#provinsi");
+        const txtprovinsi = document.querySelector("#txtprovinsi").value.toLowerCase();
+        
+        data.forEach(item => {
+            const provinsi = item.provinsi.toLowerCase();
+
+            if (txtprovinsi == provinsi) {
+                // divprovinsi.innerHTML = ``;
+                console.log("emememe");
+            } else {
+                // divprovinsi.setAttribute("hidden", "hidden");
+                console.log("blabla");
+            }
+        });
+        
+    };
+
     document.addEventListener("DOMContentLoaded", () => {
+        const btnsearch = document.querySelector("#btnsearch");
+        const provItemElement = document.querySelector("prov-item");
+
+
+        // btnsearch.addEventListener("click", function () {
+        //     getdataprovinsi();
+        // });
         getdatacovid();
     });
 }
