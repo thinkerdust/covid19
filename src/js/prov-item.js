@@ -1,16 +1,17 @@
 import css from "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.min.js";
 
 class ProvItem extends HTMLElement {
     
-    constructor() {
-        super();
-        this.shadowDom = this.attachShadow({mode:"open"});
-    }
+    // constructor() {
+    //     super();
+    //     this.shadowDom = this.attachShadow({mode:"open"});
+    // }
 
-    connectedCallback() {
-        // this.attachShadow({mode: "open"});
-        this.render();
-    }
+    // connectedCallback() {
+    //     this.attachShadow({mode: "open"});
+    //     this.render();
+    // }
 
     // set provs(provs) {
     //     this._provs = provs;
@@ -18,7 +19,7 @@ class ProvItem extends HTMLElement {
     // }
 
     render() {
-        this.shadowDom.innerHTML = `
+        this.shadowRoot.innerHTML = `
         <style>
             ${css}
         </style>

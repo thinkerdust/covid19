@@ -19,7 +19,9 @@
   "homepage": "https://github.com/thinkerdust/covid19#readme",
   "dependencies": {
     "bootstrap": "^4.4.1",
-    "jquery": "^3.4.1"
+    "chart.js": "^2.9.3",
+    "jquery": "^3.4.1",
+    "sweetalert": "^2.1.2"
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",
