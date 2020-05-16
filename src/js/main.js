@@ -1,21 +1,15 @@
-import "./prov-item.js";
+import "./search-bar.js";
+import swal from 'sweetalert';
 
-function main() {
-    const getdatacovid = () => {
-        fetch("https://indonesia-covid-19.mathdro.id/api")
-        .then(response => {
-            return response.json();
-        })
-        .then(responseJson => {
-            if(responseJson.error) {
-                showResponseMessage(responseJson.message);
-            } else {
-                renderAllDataCovid(responseJson);
-            }
-        })
-        .catch(error => {
+const main = () => {
+    const getdatacovid = async () => {
+        try {
+            const response = await fetch("https://indonesia-covid-19.mathdro.id/api");
+            const responseJson = await response.json();
+            renderAllDataCovid(responseJson);
+        } catch(error) {
             showResponseMessage(error);
-        });
+        }
     };
 
     const renderAllDataCovid = (responseJson) => {
@@ -39,51 +33,68 @@ function main() {
         alert(message);
     };
 
-    const getdataprovinsi = () => {
-        fetch("https://indonesia-covid-19.mathdro.id/api/provinsi")
-        .then(response => {
-            return response.json();
-        })
-        .then(responseJson => {
-            if(responseJson.error) {
-                showResponseMessage(responseJson.message);
-            } else {
-                renderDataProvinsi(responseJson.data);
-            }
-        })
-        .catch(error => {
+    const getdataprovinsi = async () => {
+        try {
+            const response = await fetch("https://indonesia-covid-19.mathdro.id/api/provinsi");
+            const responseJson = await response.json();
+            renderDataProvinsi(responseJson.data);
+        } catch(error) {
             showResponseMessage(error);
-        });
+        }
     };
 
     const renderDataProvinsi = (data) => { 
-        const divprovinsi = document.querySelector("#provinsi");
-        const txtprovinsi = document.querySelector("#txtprovinsi").value.toLowerCase();
-        
-        data.forEach(item => {
-            const provinsi = item.provinsi.toLowerCase();
+        const inputProv = searchElement.value.toLowerCase();
+        const divprovinsi = document.querySelector("prov-item");
+        // const dataprovinsi = data.map(item => item.provinsi);
 
-            if (txtprovinsi == provinsi) {
-                // divprovinsi.innerHTML = ``;
-                console.log("emememe");
-            } else {
-                // divprovinsi.setAttribute("hidden", "hidden");
-                console.log("blabla");
-            }
-        });
+        function searchProv(province) {
+            var strProv = province.provinsi.toLowerCase();
+            return strProv === inputProv;
+        }
+
         
+        // console.log(kasusPosi);
+        if(data.find(searchProv)) {
+            const {kasusPosi,kasusSemb,kasusMeni} = data.find(searchProv);
+            divprovinsi.innerHTML = `<div class="card-deck mb-3 text-center">
+            <div class="card text-white bg-info mb-3">
+            <div class="card-header">Kasus Positif</div>
+            <div class="card-body">
+                <h5 class="card-title">${kasusPosi}</h5>
+            </div>
+            </div>
+            <div class="card text-white bg-success mb-3">
+            <div class="card-header">Sembuh</div>
+            <div class="card-body">
+                <h5 class="card-title">${kasusSemb}</h5>
+            </div>
+            </div>
+            <div class="card text-white bg-danger mb-3">
+            <div class="card-header">Meninggal</div>
+            <div class="card-body">
+                <h5 class="card-title">${kasusMeni}</h5>
+            </div>
+            </div>
+        </div>`;
+        }else {
+            divprovinsi.innerHTML = "";
+            swal({
+                icon: "error",
+                title: "Provinsi Tidak Ditemukan!",
+                text: "Cek kembali penulisan. Masukkan nama Provinsi dengan benar.",
+                closeOnClickOutside: false,
+              });
+        }
     };
 
+    const searchElement = document.querySelector("search-bar");
+
     document.addEventListener("DOMContentLoaded", () => {
-        const btnsearch = document.querySelector("#btnsearch");
-        const provItemElement = document.querySelector("prov-item");
-
-
-        // btnsearch.addEventListener("click", function () {
-        //     getdataprovinsi();
-        // });
         getdatacovid();
     });
-}
+
+    searchElement.clickEvent = getdataprovinsi;
+};
 
 export default main();

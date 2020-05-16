@@ -5,10 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>COVID-19</title>
 
-        <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
     </head>
     <body>
-        <!-- <button class="btn btn-danger btn-md" id="btnTop">top</button> -->
 
         <header>
             <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
@@ -39,7 +37,7 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-7 p-5">
+                                <div class="col-md-7">
                                     <h3>Gunakan Masker</h3>
                                     <p>Pakai masker jika Anda harus beraktivitas di luar rumah dan ganti secara berkala</p>
                                 </div>
@@ -92,6 +90,8 @@
                                   </div>
                                 </div>
                             </div>
+                            <h2>Grafik Harian Kasus Covid-19 Indonesia</h2>
+                            <canvas id="chartCovid" width="100%"></canvas>
                         </div>
                     </div>
                 </div>
@@ -102,10 +102,9 @@
                     <div class="col-md-10">
                         <div class="shadow p-3 mb-5 bg-white rounded content-covid">
                             <h2>Data Pantauan COVID-19 Provinsi</h2>
-                            <form class="search-prov">
-                                <input type="text" placeholder="Silahkan Masukkan Nama Provinsi Yang Dicari" name="">
-                                <button class="btn btn-primary">Search</button>
-                            </form>
+                            <search-bar>
+
+                            </search-bar>
                             <prov-item>
 
                             </prov-item>
@@ -118,6 +117,5 @@
         <footer>
             <p>&copy; Copyright <strong>2020 Indonesia Melawan COVID-19.</strong> All Rights Reserved</p>
         </footer>
-
     </body>
 </html>
