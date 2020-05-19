@@ -1,5 +1,6 @@
 import "./search-bar.js";
 import swal from 'sweetalert';
+import Chart from "chart.js";
 
 const main = () => {
     const getdatacovid = async () => {
@@ -90,8 +91,73 @@ const main = () => {
 
     const searchElement = document.querySelector("search-bar");
 
+    const getDataCovidHarian = async () => {
+        try {
+            const response = await fetch("https://indonesia-covid-19.mathdro.id/api/harian");
+            const responseJson = await response.json();
+            renderChartDataCovid(responseJson.data);
+        } catch(error) {
+            showResponseMessage(error);
+        }
+    };
+    
+    const unixToTime = (unixTime) => {
+        let wkt = new Date(unixTime);
+        let time = ((wkt.getMonth() > 8) ? (wkt.getMonth() + 1) : ('0' + (wkt.getMonth() + 1))) + '/' + ((wkt.getDate() > 9) ? wkt.getDate() : ('0' + wkt.getDate())) + '/' + wkt.getFullYear();
+        return time;
+      }
+    
+    const renderChartDataCovid = (data) => {
+        let datas = [];
+        let labels = [];
+    
+        data.forEach(item => {
+            labels.push(unixToTime(item.tanggal));
+            datas.push(item.jumlahKasusBaruperHari);
+        });
+        renderChartCovid(datas, labels);
+    };
+    
+    const renderChartCovid = (datas,labels) => {
+        var ctx = document.getElementById('chartCovid').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Jumlah Kasus Positif',
+                    data: datas,
+                    backgroundColor: [
+                        'rgba(255, 0, 0, 0.2)',
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }],
+                    xAxes: [{
+                        type: 'time',
+                        time: {
+                            unit: 'day',
+                            stepSize: 4
+                        }
+                    }]
+                }
+            }
+        });
+    };
+
     document.addEventListener("DOMContentLoaded", () => {
         getdatacovid();
+        getDataCovidHarian();
     });
 
     searchElement.clickEvent = getdataprovinsi;
